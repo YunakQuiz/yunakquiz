@@ -2,11 +2,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/App.tsx',
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/dist'
+    path: __dirname + '/../dist'
   },
 
   // Enable sourcemaps for debugging webpack's output.
@@ -28,10 +28,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          // fallback to style-loader in development
-          process.env.NODE_ENV !== 'production'
-            ? 'style-loader' // creates style nodes from JS strings
-            : MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           'css-loader', // translates CSS into CommonJS
           'sass-loader' // compiles Sass to CSS, using Node Sass by default
         ]
