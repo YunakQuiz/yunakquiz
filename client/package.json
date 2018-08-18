@@ -4,7 +4,8 @@
   "description": "Testing application to aid scout masters",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js",
+    "build-dev": "./node_modules/webpack/bin/webpack.js --mode=development",
+    "build-prod": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,8 +26,13 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.0",
+    "css-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
+    "style-loader": "^0.22.1",
     "typescript": "^3.0.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"

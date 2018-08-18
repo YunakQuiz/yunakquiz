@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './Hello.scss';
 
 export interface HelloProps {
   compiler: string;
@@ -10,9 +11,9 @@ export interface HelloProps {
 export class Hello extends React.Component<HelloProps, {}> {
   render() {
     return (
-      <h1>
+      <div className="test-title">
         Hello from {this.props.compiler} and {this.props.framework}!
-      </h1>
+      </div>
     );
   }
 }
