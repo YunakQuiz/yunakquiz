@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -39,6 +40,27 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: './index.html'
-    })
-  ]
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    host: 'localhost',
+    port: 3000,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    open: true,
+
+    stats: {
+      assets: false,
+      children: false,
+      chunks: false,
+      env: true,
+      modules: false,
+      moduleTrace: false,
+      performance: true,
+      publicPath: false,
+      source: true
+    }
+  }
 };
