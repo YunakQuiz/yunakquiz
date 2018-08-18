@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: './src/App.tsx',
   output: {
@@ -21,5 +23,12 @@ module.exports = {
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
     ]
-  }
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: './index.html'
+    })
+  ]
 };
